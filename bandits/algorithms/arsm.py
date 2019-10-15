@@ -23,6 +23,8 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
+import numpy
+
 import tensorflow as tf
 tfd = tf.distributions
 
@@ -40,15 +42,23 @@ def swap(x, i, j):
   return ans
 
 @tf.custom_gradient
-def arsm_evaluaion(inputs):
+def arsm_loss(context, action, reward):
   pass
 
 
 class ARSMSampler(models.Model):
   """ARSM LAYER"""
 
-  def __init__(self, units):
+  def __init__(self, num_actions, env, seed=None):
     super(ARSMSampler, self).__init__()
+    self.num_actions = num_actions
+    self.env = env
+    self.seed = seed
+
+  @property
+  def range
+  @property
+  def random_sampler
     self.sampler = tfd.Dirichlet(tf.ones(units))
 
   def action(self, inputs):
